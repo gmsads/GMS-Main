@@ -19,6 +19,10 @@ const BlogDetail = ({ blogId, selectedBlog, navigateTo }) => {
         try {
           setLoading(true);
           const res = await fetch(`/api/blogs/${blogId}`);
+          const contentType = res.headers.get('content-type');
+          if (!contentType || !contentType.includes('application/json')) {
+            throw new Error('Unable to connect to backend API. Please ensure backend server is running.');
+          }
           if (!res.ok) throw new Error('Blog post not found');
           const data = await res.json();
           setBlog(data);

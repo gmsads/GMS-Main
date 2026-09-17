@@ -28,6 +28,10 @@ const Blog = ({ navigateTo, onSelectBlog }) => {
       if (params.toString()) url += `?${params.toString()}`;
 
       const res = await fetch(url);
+      const contentType = res.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Unable to connect to backend API. Please ensure backend server is running.');
+      }
       if (!res.ok) throw new Error('Failed to fetch blogs');
       const data = await res.json();
       setBlogs(data);

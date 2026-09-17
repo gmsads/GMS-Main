@@ -135,7 +135,7 @@ const Navbar = ({ currentView, navigateTo }) => {
             <a href="https://www.instagram.com/gms_ads" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
               <Instagram size={14} />
             </a>
-            <a href="https://www.pinterest.com/GlobalMarketingSolutionsAds" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', backgroundColor: '#E60023', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
+            <a href="https://pin.it/HesPTZdlg" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', backgroundColor: '#E60023', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
               <PinterestIcon size={14} />
             </a>
             <a href="https://www.linkedin.com/in/rudraram-bala-brahma-chary-483788345" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', backgroundColor: '#0077b5', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>

@@ -62,6 +62,11 @@ const BlogAdmin = ({ navigateTo }) => {
         body: JSON.stringify({ email: loginEmail, password: loginPassword }),
       });
 
+      const contentType = res.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Unable to connect to admin authentication server. Please ensure backend server is running.');
+      }
+
       const data = await res.json();
 
       if (!res.ok) {

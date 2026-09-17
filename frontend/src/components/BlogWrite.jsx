@@ -67,6 +67,11 @@ const BlogWrite = ({ navigateTo }) => {
         body: JSON.stringify({ email: loginEmail, password: loginPassword }),
       });
 
+      const contentType = res.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Unable to connect to authentication server. Please ensure backend server is running.');
+      }
+
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.message || 'Login failed');

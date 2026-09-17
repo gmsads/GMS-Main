@@ -47,6 +47,9 @@ app.use('/api', (req, res) => {
 
 // Catch-all SPA fallback route for direct page loads (/blog-login, /blog-write, /blog-admin, etc.)
 app.use((req, res) => {
+  if (req.path.startsWith('/api') || req.originalUrl.startsWith('/api')) {
+    return res.status(404).json({ message: 'API endpoint not found' });
+  }
   res.sendFile(path.join(frontendDist, 'index.html'), (err) => {
     if (err) {
       res.status(200).send('GMS Backend is active. Run "npm run build" to serve frontend production build.');

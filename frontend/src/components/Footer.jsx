@@ -349,7 +349,7 @@ const Footer = ({ navigateTo }) => {
                   onClick={(e) =>
                     handleSocialClick(
                       e,
-                      "https://www.pinterest.com/GlobalMarketingSolutionsAds",
+                      "https://pin.it/HesPTZdlg",
                     )
                   }
                 >
