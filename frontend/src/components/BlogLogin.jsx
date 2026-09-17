@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PenTool, Mail, Lock, ShieldCheck, ArrowRight, UserCheck } from 'lucide-react';
+import { getApiUrl } from '../config/api';
 
 const BlogLogin = ({ navigateTo }) => {
   const [email, setEmail] = useState('');
@@ -13,7 +14,8 @@ const BlogLogin = ({ navigateTo }) => {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/auth/login', {
+      const fullUrl = getApiUrl('/api/auth/login');
+      const res = await fetch(fullUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password }),
@@ -21,6 +23,8 @@ const BlogLogin = ({ navigateTo }) => {
 
       const contentType = res.headers.get('content-type');
       if (!contentType || !contentType.includes('application/json')) {
+        const text = await res.text();
+        console.error(`[API Diagnostic Error] URL: ${fullUrl} | Status: ${res.status} | Content-Type: ${contentType} | Snippet:`, text.substring(0, 150));
         throw new Error('Unable to connect to authentication server. Please ensure backend server is running.');
       }
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PenTool, CheckCircle, Trash2, Edit3, Image, LogOut, Mail, Lock, Sparkles, Layout } from 'lucide-react';
+import { getApiUrl } from '../config/api';
 
 const BlogWrite = ({ navigateTo }) => {
   const [authorUser, setAuthorUser] = useState(() => {
@@ -33,7 +34,7 @@ const BlogWrite = ({ navigateTo }) => {
     if (!authorUser || !authorUser.token) return;
     try {
       setBlogsLoading(true);
-      const res = await fetch('/api/blogs/my-blogs', {
+      const res = await fetch(getApiUrl('/api/blogs/my-blogs'), {
         headers: {
           Authorization: `Bearer ${authorUser.token}`,
         },
@@ -61,7 +62,7 @@ const BlogWrite = ({ navigateTo }) => {
     setLoginLoading(true);
 
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch(getApiUrl('/api/auth/login'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: loginEmail, password: loginPassword }),
@@ -119,7 +120,7 @@ const BlogWrite = ({ navigateTo }) => {
       const url = editingBlogId ? `/api/blogs/${editingBlogId}` : '/api/blogs';
       const method = editingBlogId ? 'PUT' : 'POST';
 
-      const res = await fetch(url, {
+      const res = await fetch(getApiUrl(url), {
         method,
         headers: {
           'Content-Type': 'application/json',
@@ -170,7 +171,7 @@ const BlogWrite = ({ navigateTo }) => {
     if (!window.confirm(`Are you sure you want to delete blog: "${blogTitle}"?`)) return;
 
     try {
-      const res = await fetch(`/api/blogs/${blogId}`, {
+      const res = await fetch(getApiUrl(`/api/blogs/${blogId}`), {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${authorUser.token}`,

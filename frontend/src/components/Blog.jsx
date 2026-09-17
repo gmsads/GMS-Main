@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, User, ArrowRight, Search, PlusCircle, ShieldAlert, Tag } from 'lucide-react';
+import { getApiUrl } from '../config/api';
 
 const Blog = ({ navigateTo, onSelectBlog }) => {
   const [blogs, setBlogs] = useState([]);
@@ -27,10 +28,13 @@ const Blog = ({ navigateTo, onSelectBlog }) => {
       if (searchQuery) params.append('search', searchQuery);
       if (params.toString()) url += `?${params.toString()}`;
 
-      const res = await fetch(url);
+      const fullUrl = getApiUrl(url);
+      const res = await fetch(fullUrl);
       const contentType = res.headers.get('content-type');
       if (!contentType || !contentType.includes('application/json')) {
-        throw new Error('Unable to connect to backend API. Please ensure backend server is running.');
+        const text = await res.text();
+        console.error(`[API Diagnostic Error] URL: ${fullUrl} | Status: ${res.status} | Content-Type: ${contentType} | Body Snippet:`, text.substring(0, 150));
+        throw new Error('Unable to connect to backend API. Please ensure backend server is running and API URL is reachable.');
       }
       if (!res.ok) throw new Error('Failed to fetch blogs');
       const data = await res.json();

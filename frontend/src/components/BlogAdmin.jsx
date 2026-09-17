@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, UserPlus, Users, Trash2, LogOut, Lock, Mail, User } from 'lucide-react';
+import { getApiUrl } from '../config/api';
 
 const BlogAdmin = ({ navigateTo }) => {
   const [adminUser, setAdminUser] = useState(() => {
@@ -28,7 +29,7 @@ const BlogAdmin = ({ navigateTo }) => {
     if (!adminUser || !adminUser.token) return;
     try {
       setUsersLoading(true);
-      const res = await fetch('/api/admin/users', {
+      const res = await fetch(getApiUrl('/api/admin/users'), {
         headers: {
           Authorization: `Bearer ${adminUser.token}`,
         },
@@ -56,7 +57,7 @@ const BlogAdmin = ({ navigateTo }) => {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch(getApiUrl('/api/auth/login'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: loginEmail, password: loginPassword }),
@@ -104,7 +105,7 @@ const BlogAdmin = ({ navigateTo }) => {
 
     try {
       setLoading(true);
-      const res = await fetch('/api/admin/create-user', {
+      const res = await fetch(getApiUrl('/api/admin/create-user'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -144,7 +145,7 @@ const BlogAdmin = ({ navigateTo }) => {
     if (!window.confirm(`Are you sure you want to delete user account: ${userEmail}?`)) return;
 
     try {
-      const res = await fetch(`/api/admin/users/${userId}`, {
+      const res = await fetch(getApiUrl(`/api/admin/users/${userId}`), {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${adminUser.token}`,

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Calendar, User, Share2 } from 'lucide-react';
+import { getApiUrl } from '../config/api';
 
 const BlogDetail = ({ blogId, selectedBlog, navigateTo }) => {
   const [blog, setBlog] = useState(selectedBlog || null);
@@ -18,9 +19,12 @@ const BlogDetail = ({ blogId, selectedBlog, navigateTo }) => {
       const fetchBlog = async () => {
         try {
           setLoading(true);
-          const res = await fetch(`/api/blogs/${blogId}`);
+          const fullUrl = getApiUrl(`/api/blogs/${blogId}`);
+          const res = await fetch(fullUrl);
           const contentType = res.headers.get('content-type');
           if (!contentType || !contentType.includes('application/json')) {
+            const text = await res.text();
+            console.error(`[API Diagnostic Error] URL: ${fullUrl} | Status: ${res.status} | Content-Type: ${contentType} | Snippet:`, text.substring(0, 150));
             throw new Error('Unable to connect to backend API. Please ensure backend server is running.');
           }
           if (!res.ok) throw new Error('Blog post not found');
