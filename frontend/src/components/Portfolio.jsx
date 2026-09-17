@@ -14,7 +14,7 @@ import Ledsignboard from '../assets/SriSitaraCollections/Ledsignboard.jpeg';
 import ssclogo from '../assets/SriSitaraCollections/ssclogo.jpeg';
 import pamphlet from '../assets/SriSitaraCollections/pamphlet.jpeg';
 import photobhoot from '../assets/SriSitaraCollections/photobhoot.jpeg';
-import trycycle from '../assets/SriSitaraCollections/trycycle.jpeg';
+import trycycle from '../assets/SriSitaraCollections/Trycycle.jpeg';
 
 // Big basket
 import bautotop from '../assets/Bigbasket/bautotop.jpeg';
