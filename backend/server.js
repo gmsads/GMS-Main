@@ -12,10 +12,11 @@ import { seedDefaultAdmin } from './modules/auth/auth.controller.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const systemPort = process.env.PORT;
 dotenv.config({ path: [path.join(__dirname, '.env'), path.join(__dirname, '../.env')] });
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = systemPort || process.env.PORT || 5000;
 
 // Connect to Database & Seed Admin
 connectDB().then(() => {
@@ -65,6 +66,6 @@ app.use((err, req, res, next) => {
   }
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`GMS Backend Server listening on port ${PORT}`);
 });
