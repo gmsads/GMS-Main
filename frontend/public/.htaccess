@@ -12,6 +12,9 @@
     RewriteEngine On
     RewriteBase /
 
+    # Exclude /api routes from static index.html rewrite so Phusion Passenger Node.js handles them
+    RewriteRule ^api/ - [L]
+
     RewriteRule ^index\.html$ - [L]
 
     RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -20,3 +23,12 @@
 
     RewriteRule ^ index.html [L]
 </IfModule>
+
+PassengerAppRoot /home/u594140720/domains/globalmarketingsolutions.in/hbuilds/current/nodejs
+PassengerAppType node
+PassengerNodejs /opt/alt/alt-nodejs22/root/bin/node
+PassengerStartupFile server.js
+PassengerBaseURI /
+PassengerRestartDir /home/u594140720/domains/globalmarketingsolutions.in/hbuilds/current/nodejs/tmp
+SetEnv NODE_OPTIONS "--require /home/u594140720/domains/globalmarketingsolutions.in/hbuilds/config/preload-timestamp.js"
+SetEnv LSNODE_CONSOLE_LOG console.log

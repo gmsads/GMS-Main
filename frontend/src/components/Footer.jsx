@@ -329,7 +329,7 @@ const Footer = ({ navigateTo }) => {
                     e.currentTarget.style.opacity = "1";
                   }}
                   onClick={(e) =>
-                    handleSocialClick(e, "https://www.instagram.com/gms_ads")
+                    handleSocialClick(e, "https://www.instagram.com/global_marketing_solutions_gms/")
                   }
                 >
                   <Instagram size={18} />
@@ -390,7 +390,7 @@ const Footer = ({ navigateTo }) => {
                   onClick={(e) =>
                     handleSocialClick(
                       e,
-                      "https://www.youtube.com/@gms-ads2016/",
+                      "https://www.youtube.com/@global-marketing-solutions",
                     )
                   }
                 >

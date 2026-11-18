@@ -20,7 +20,7 @@ const Hero = () => {
   
 
   // Instagram URL
-  const instagramUrl = "https://www.instagram.com/gms_ads";
+  const instagramUrl = "https://www.instagram.com/global_marketing_solutions_gms/";
 
   // Video slider data - All videos now have same title "Our Success Story"
   const videos = [

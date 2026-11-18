@@ -132,7 +132,7 @@ const Navbar = ({ currentView, navigateTo }) => {
             <a href="https://www.facebook.com/GlobalMarketingSolutionsAds" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', backgroundColor: '#3b5998', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
               <Facebook size={14} />
             </a>
-            <a href="https://www.instagram.com/gms_ads" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
+            <a href="https://www.instagram.com/global_marketing_solutions_gms/" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
               <Instagram size={14} />
             </a>
             <a href="https://pin.it/HesPTZdlg" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', backgroundColor: '#E60023', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
@@ -141,7 +141,7 @@ const Navbar = ({ currentView, navigateTo }) => {
             <a href="https://www.linkedin.com/in/rudraram-bala-brahma-chary-483788345" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', backgroundColor: '#0077b5', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
               <Linkedin size={14} />
             </a>
-            <a href="https://www.youtube.com/@gms-ads2016/" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', backgroundColor: '#FF0000', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
+            <a href="https://www.youtube.com/@global-marketing-solutions" target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', backgroundColor: '#FF0000', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
               <Youtube size={14} />
             </a>
             <a href="https://wa.me/919985330008?text=Hi!%20I'm%20interested%20in%20your%20advertising%20services.%20Please%20contact%20me." target="_blank" rel="noopener noreferrer" style={{ width: '26px', height: '26px', backgroundColor: '#25D366', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', textDecoration: 'none' }}>
